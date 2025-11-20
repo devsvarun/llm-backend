@@ -29,7 +29,7 @@ Tech stack:
   ```json
   {
     "prompt": "string",
-    "params": [{"temperature": 0.7, "top_p": 0.9}, ...]
+    "params": [{"temperature": 0.7, "top_p": 0.9}]
   }
   ```
 
@@ -42,7 +42,7 @@ Tech stack:
       "prompt": "...",
       "timestamp": "...",
       "results":[
-        {"temperature":0.7,"top_p":0.9,"response":"...","metrics":{...}}
+        {"temperature":0.7,"top_p":0.9,"response":"","metrics":{}}
       ]
     }
   }
@@ -106,8 +106,6 @@ CORS is enabled for development; `allow_origins` set to `*` for assignment. Rest
 - Ensure `experiments.json` is writable or use an external storage solution.
 
 ## Troubleshooting
-
-- `AttributeError: generate_content`: ensure you're calling `client.models.generate_content(...)` (per SDK quickstart) and using matching client version.
 - 405 on OPTIONS: ensure FastAPI includes `CORSMiddleware` with `allow_methods=["*"]`.
 
 ## Contact

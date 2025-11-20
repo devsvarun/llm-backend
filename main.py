@@ -40,33 +40,6 @@ class ExperimentRequest(BaseModel):
     params: List[ParamSet]
 
 
-
-# Quality Metrics
-def metric_coherence(text: str) -> float:
-    sentences = [s.strip() for s in text.split(".") if len(s.strip()) > 3]
-    if len(sentences) < 2:
-        return 1.0
-
-    diffs = []
-    for i in range(len(sentences) - 1):
-        len1 = len(sentences[i])
-        len2 = len(sentences[i+1])
-        diff = abs(len1 - len2) / max(len1, len2)
-        diffs.append(diff)
-
-    score = 1 - (sum(diffs) / len(diffs))
-    return round(max(0, min(score, 1)), 3)
-
-
-def metric_length_score(text: str) -> float:
-    words = len(text.split())
-    if words < 80:
-        return round(words / 80, 3)
-    if words > 180:
-        return round(180 / words, 3)
-    return 1.0
-
-
 def compute_metrics(prompt: str, response: str):
     #length
     words = response.split()
