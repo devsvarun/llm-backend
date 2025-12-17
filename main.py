@@ -98,7 +98,7 @@ async def run_experiment(req: ExperimentRequest):
         print(p)
         try:
             response = client.models.generate_content(
-            model="gemini-2.0-flash-001",
+            model="gemini-2.5-flash-lite",
             contents=req.prompt,
             config=types.GenerateContentConfig(
             temperature=p.temperature,
