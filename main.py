@@ -24,7 +24,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATA_DIR = "tmp"
+DATA_DIR = "/tmp"
 DATA_FILE = os.path.join(DATA_DIR, "experiments.json")
 
 os.makedirs(DATA_DIR, exist_ok=True)
