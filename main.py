@@ -24,7 +24,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-DATA_FILE = "/temp/experiments.json"
+DATA_DIR = "temp"
+DATA_FILE = os.path.join(DATA_DIR, "experiments.json")
+
+os.makedirs(DATA_DIR, exist_ok=True)
 
 if not os.path.exists(DATA_FILE):
     with open(DATA_FILE, "w") as f:
